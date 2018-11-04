@@ -18,8 +18,10 @@ for i in range(len(students)):
         students[i]['last_name'] = 'Bryant'
         print(students[i])
 # For the sports_directory, how would you change 'Messi' to 'Andres'?
-for key , value in sports_directory.items():
-    print(key , value)
+for i in range(len(sports_directory['soccer'])):
+    if sports_directory['soccer'][i] =='Messi':
+        sports_directory['soccer'][i]='Andres'
+print(sports_directory)
 
 
 # For z, how would you change the value 20 to 30?
