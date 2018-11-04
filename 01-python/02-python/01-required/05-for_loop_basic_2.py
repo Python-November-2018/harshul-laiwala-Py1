@@ -81,6 +81,6 @@ print(UltimateAnalyze([1,2,3,4]))
     
 # ReverseList - Create a function that takes an array as an argument and return an array in a reversed order.  Do this without creating an empty temporary array.  For example reverse([1,2,3,4]) should return [4,3,2,1]. This challenge is known to appear during basic technical interviews.
 def reverse(vals):
-    return vals.reverse()
+    return vals[::-1]
 print(reverse([1,2,3,4]))
 
