@@ -61,22 +61,23 @@ print(maximum([-1,-2,-3]))
 print(maximum([1,2,3,4]))
 
 # UltimateAnalyze - Create a function that takes an array as an argument and returns a dictionary that has the sumTotal, average, minimum, maximum and length of the array.
-# def UltimateAnalyze(vals):
-#     return_dict = {
-#         "avg"= 0
-#         "maximum"=vals[0]
-#         "minimum"=vals[0]
-#         "sum"=0
-#         length = len(vals)
-#     }
-#     for index in range(length):
-#         sum += vals[index]
-#         if vals[index] < minimum:
-#             minimum = vals[index]
-#         elif vals[index] > maximum:
-#             vals[index] = maximum
-#     avg = sum/length
-#     return return_dict
+def UltimateAnalyze(vals):
+    return_dict = {
+        'avg':0,
+        'maximum':vals[0],
+        'minimum':vals[0],
+        'sum':0,
+        'length': len(vals)
+    }
+    for index in range(len(vals)):
+        return_dict['sum'] += vals[index]
+        if vals[index] < return_dict['minimum']:
+            return_dict['minimum'] = vals[index]
+        elif vals[index] > return_dict['maximum']:
+           return_dict['maximum'] =  vals[index]
+    return_dict['avg'] = return_dict['sum']/len(vals)
+    return return_dict
+print(UltimateAnalyze([1,2,3,4]))
     
 # ReverseList - Create a function that takes an array as an argument and return an array in a reversed order.  Do this without creating an empty temporary array.  For example reverse([1,2,3,4]) should return [4,3,2,1]. This challenge is known to appear during basic technical interviews.
 def reverse(vals):
