@@ -28,12 +28,25 @@ class Product:
             
 # Return Item: takes reason_for_return as a parameter and changes status accordingly. If the item is being returned because it is defective, change status to "defective" and change price to 0. If it is being returned in the box, like new, mark it "for sale". If the box has been opened, set the status to "used" and apply a 20% discount.  (use "defective", "like_new", or "opened" as three possible value for reason_for_return).
     def return_items(self, reason_for_return):
-        
+        if reason_for_return == 'defective':
+            self.Status = reason_for_return
+            self.Price = 0
+            return self
+        elif reason_for_return == 'like_new':
+            self.Status = 'For Sale'
+            return self
+        elif reason_for_return == 'opened':
+            self.Status = 'Used'
+            self.Price = self.Price * 0.2
+            return self
+        else:
+            print("Not a valid Reason for Return")
+            return self
 
 
 # Display Info: show all product details.
 # Every method that doesn't have to return something should return self so methods can be chained.
-    def display_all:
+    def display_all(self):
         temp = vars(self)
         for key in temp:
             print(key+":", temp[key])
