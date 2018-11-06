@@ -50,13 +50,22 @@ dog = Dog(name='Dog')
 dog.walk().walk().walk().run().run().pet().display_health()
 
 # Dragon Class
-#  inherits everything from Animal
-
+#inherits everything from Animal
 # Attributes:
-#  default health of 170
-
+# default health of 170
 # Methods:
-#  fly: decreases health by 10
-#  display health: prints health by calling the parent method and prints "I am a Dragon"
-
+# fly: decreases health by 10
+# display health: prints health by calling the parent method and prints "I am a Dragon"
+class Dragon(Animal):
+    def __init__(self, name):
+        super().__init__()
+        self.Health = 170
+    def fly(self):
+        print("{} is a Dragon".format(self.Name))
+        self.Health -= 10
+        return self
+dragon=Dragon(name='dragon')
+dragon.display_health().fly().display_health()
 # Now try creating a new Animal and confirm that it can not call the pet() and fly() methods, and its displayHealth() is not saying 'this is a dragon!'. Also confirm that your Dog class can not fly().
+# animal2 =Animal()
+# animal2.pet()
