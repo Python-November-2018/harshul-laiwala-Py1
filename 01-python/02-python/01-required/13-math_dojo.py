@@ -13,12 +13,15 @@ class MathDojo:
     def add(self, *values ):
         for value in values:
             self.Result += value
+            print("result of add:{}",format(self.Result))
             return self 
     def subtract(self, *values):
         for value in values:
             self.Result -= value
+            print("result of subtract:{}",format(self.Result))
             return self
     def result(self):
+        print("final result:{}",format(self.Result))
         return self.Result
         
 # Then create a new instance called md. It should be able to do the following task:
