@@ -5,45 +5,58 @@
 
 # Animal Class
 # Attributes:
-
-# • name
-
-# • health
-
+# name
+# health
 # Methods:
-
 # • walk: decreases health by one
-
 # • run: health decreases by five
-
 # • display health: print to the terminal the animal's health.
+class Animal:
+    def __init__(self, name, health=0):
+        self.Name=name
+        self.Health=health
+        
+    def walk(self):
+        self.Health-=1
+        return self
+    def run(self):
+        self.Health-=5
+        return self
+    def display_health(self):
+        print("Health of {} is {}".format(self.Name,self.Health))
+        return self
 
 # Create an instance of the Animal, have it walk() three times, run() twice, and finally displayHealth() to confirm that the health attribute has changed.
+animal1 = Animal(name='lion', health = 100)
+animal1.walk().walk().walk().run().run().display_health()
 
 # Dog Class
-# • inherits everything from Animal
-
+# inherits everything from Animal
 # Attributes:
-
-# • default health of 150
-
+# default health of 150
 # Methods:
+# pet: increases health by 5;
+class Dog(Animal):
+    def __init__(self, name, health=0):
+        super().__init__()
+        self.Health = 150
 
-# • pet: increases health by 5
+    def pet(self):
+        self.Health +=5
+        return self
 
 # Have the Dog walk() three times, run() twice, pet() once, and have it displayHealth().
+dog = Dog(name='Dog')
+dog.walk().walk().walk().run().run().pet().display_health()
 
 # Dragon Class
-# • inherits everything from Animal
+#  inherits everything from Animal
 
 # Attributes:
-
-# • default health of 170
+#  default health of 170
 
 # Methods:
-
-# • fly: decreases health by 10
-
-# • display health: prints health by calling the parent method and prints "I am a Dragon"
+#  fly: decreases health by 10
+#  display health: prints health by calling the parent method and prints "I am a Dragon"
 
 # Now try creating a new Animal and confirm that it can not call the pet() and fly() methods, and its displayHealth() is not saying 'this is a dragon!'. Also confirm that your Dog class can not fly().
