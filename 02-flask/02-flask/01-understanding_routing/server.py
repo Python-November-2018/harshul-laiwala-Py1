@@ -21,9 +21,9 @@ def say(name):
 
 # localhost:5000/repeat/35/hello - have it say "hello" 35 times! - You will need to convert a string "35" to an integer 35.  To do this use int().  For example int("35") returns 35.  If the user request localhost:5000/repeat/80/hello, it should say "hello" 80 times.
 # localhost:5000/repeat/99/dogs - have it say "dogs" 99 times! (have this be handled by the same route function as #6)
-@app.route("/repeat/number/string")
-def repeat(number , string):
-    return string * number
+@app.route("/repeat/<num>/<str>")
+def repeat(num,str):
+    return str * int(num)
 
 print(__name__)
 
