@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkerboard</title>
+    <style>
+        .wrapper{
+           margin: 5px, auto;
+           width: auto;
+           height: auto;
+           text-align: center;
+        }
+        .box1{
+            width:40px;
+            height: 40px;
+            background-color: red;
+            display: inline-block;
+            margin:auto;
+            
+        }
+        .box2{
+            width:40px;
+            height: 40px;
+            background-color: black;
+            display: inline-block;
+            margin:0px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class='wrapper'>
+        {%for var in range(0,x)%}
+        <div class='row'>
+            {% for var in range(0,y)%}
+                <div class='box1'></div>
+                <div class='box2'></div>
+                {%endfor%}
+        </div>     
+        {%endfor%}
+    </div>
+    
+</body>
+</html>
