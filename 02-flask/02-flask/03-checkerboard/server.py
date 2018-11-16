@@ -11,6 +11,5 @@ def checkboard():
 def user_defined_checkerboard(x,y):
     return render_template('index.html', x=int(x), y=int((int(y)/2)))
 
-
 if __name__ == '__main__':
     app.run(debug=True)
