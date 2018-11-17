@@ -12,13 +12,14 @@ def danger():
 
 @app.route('/process', methods=['POST'])
 def process_survey_form():
-    # print(request.form)
-    survey_info = (
+    survey_info ={
         'name': request.form['name'],
-        
+        'favoriteLanguage':request.form['favoriteLanguage'],
+        'dojoLocation': request.form['dojoLocation'],
+        'comments': request.form['comments']
+    }
+    print(survey_info)
 
-    )
-    print()
     return render_template('result.html')
 
 if __name__ == '__main__':
