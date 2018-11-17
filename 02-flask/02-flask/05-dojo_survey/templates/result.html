@@ -19,13 +19,13 @@
         <h1 class="display-5">Submitted Info</h1>
         <dl class="row">
             <dt class="col-sm-3">Name:</dt>
-            <dd class="col-sm-9">{{ survey_info['name'] }}</dd>
+            <dd class="col-sm-9">{{ request.form['name'] }}</dd>
             <dt class="col-sm-3">Dojo Location:</dt>
-            <dd class="col-sm-9">{{ survey_info['dojoLocation'] }}</dd>
+            <dd class="col-sm-9">{{ request.form['dojoLocation'] }}</dd>
             <dt class="col-sm-3">Favorite Language:</dt>
-            <dd class="col-sm-9">{{ survey_info['favoriteLocation'] }}</dd>
+            <dd class="col-sm-9">{{ request.form['favoriteLanguage'] }}</dd>
             <dt class="col-sm-3">Comments:</dt>
-            <dd class="col-sm-9">{{ survey_info['comments'] }}</dd>
+            <dd class="col-sm-9">{{ request.form['comments'] }}</dd>
         </dl>
         <a class='btn btn-primary btn-lg' href="/">Return</a>
     </div> <!-- End Wrapper Div  -->

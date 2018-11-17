@@ -19,7 +19,6 @@ def process_survey_form():
         'comments': request.form['comments']
     }
     print(survey_info)
-
     return render_template('result.html')
 
 if __name__ == '__main__':
