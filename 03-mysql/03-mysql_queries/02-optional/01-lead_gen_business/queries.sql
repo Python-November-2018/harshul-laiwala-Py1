@@ -39,5 +39,8 @@ group by clients.client_id order by clients.client_id;
 
 
 -- 9. Write a single query that retrieves total revenue collected from each client for each month of the year. Order it by client id.
+select sum(amount) as total_revenue, billing.client_id, month(billing.charged_datetime) from billing group by month(billing.charged_datetime) order by billing.client_id, month(billing.charged_datetime);
 
 -- 10. Write a single query that retrieves all the sites that each client owns. Group the results so that each row shows a new client. It will become clearer when you add a new field called 'sites' that has all the sites that the client owns. (HINT: use GROUP_CONCAT)
+select concat(clients.first_name,' ', clients.last_name) as client_name, group_concat(sites.domain_name) as websites from clients 
+join sites on clients.client_id = sites.client_id;
