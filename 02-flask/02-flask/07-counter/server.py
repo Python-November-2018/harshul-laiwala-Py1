@@ -10,7 +10,7 @@ def index():
     else:
         session['counter'] = 1
     print('*' * 10 + str(session['counter']) + '*' * 10)
-    return render_template('index.html', count = session['counter'])
+    return render_template('index.html')
 
 @app.route('/counter', methods=["POST"])
 def counter():
