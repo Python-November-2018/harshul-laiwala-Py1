@@ -18,16 +18,16 @@ def counter():
     session['counter'] = int(session['counter']) + 2
     return redirect('/')
 
-@app.route('/reset_counter' , methods=["POST"])
+@app.route('/resetCounter' , methods=["POST"])
 def reset_counter():
-    session['counter'] = 1
+    session.clear()
     print('*' * 10 + str(session['counter']) + '*' * 10)
     return redirect('/')
 
-@app.route('/destroy_session')
+@app.route('/destroy')
 def destroy_session():
     session.clear()
-    redirect('/')
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
