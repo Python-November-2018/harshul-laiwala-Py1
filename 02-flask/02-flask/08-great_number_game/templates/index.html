@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Great NUmber Game!!</title>
+    <style>
+        input , button {
+            display: block;
+            margin-top: 20px;
+        }
+        div{
+            align-content: center;
+            text-align: left;
+        }
+        #success{
+            width: fit-content;
+            background-color: blueviolet;
+            height: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #failLow , #failHigh{
+            width:fit-content;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Welcome to the Great Number Game!</h1>
+        <p><strong> I am thinking of a number between 1 and 100</strong></p>
+        <p> Take a Guess!</p>
+        {% if session['display']=='high' %}
+        <div class="container" id="failHigh">
+            <h4>TOO HIGH</h4>
+        </div>
+        {% endif %}
+        {% if  session['display']=='low' %}
+        <div class="container" id="failLow">
+            <h4>TOO LOW</h4>
+        </div>
+        {% endif %}
+        {% if session['display']=='match' %}
+        <div class="container" id="success">
+            <h4>{{session['number']}} was the Number</h4>
+            <form action="/reset" method="POST">
+                <button type="submit" id="playAgain" class="btn btn-warning">Play Again</button>
+            </form>
+        </div>
+        {% endif %}
+        <form action="/process" method="POST">
+            <input type="text" name="inputNumber" id="inputNumber">
+            <button type="submit" class="btn btn-success" id="submit">SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>
