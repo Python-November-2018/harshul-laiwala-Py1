@@ -4,10 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>Dojo Survey</title>
 </head>
 <body>
     <div class="container">
+        <h1 class="display-3">Dojo Survery</h1>
+        {%  with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages%}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <p> {{ message }} </p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif%}
+        {%endwith%}
+        <form action="/process" method="POST" class="form-group">
+            <div class="form-group">
+                <label for="name"> Your Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="dojoLocation"> Dojo Location</label>
+                <select name="dojoLocation" id="dojoLocation" class="form-control">
+                    <option value="1">San Jose</option>
+                    <option value="2">Los Angeles</option>
+                    <option value="3">Seattle</option>
+                    <option value="4">Portland</option>
+                    <option value="5">Denver</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="favoriteLocation"> Dojo Location</label>
+                <select name="favoriteLocation" id="favoriteLocation" class="form-control">
+                    <option value="1">C#</option>
+                    <option value="2">Python</option>
+                    <option value="3">JavaScript</option>
+                    <option value="4">Java</option>
+                    <option value="5">PHP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <small class="text-muted">(Optional)</small>
+                <small class="text-muted">Limit 120 Characters</small>
+                <textarea class="form-control" name="comments" id="comments" cols="30" rows="5">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submit" value="submit" class="btn btn-primary">
+            </div>
+        </form>
 
     </div>
 </body>
