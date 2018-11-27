@@ -19,7 +19,8 @@ def process_survey():
     if len(str(request.form['comments'])) == 0:
         flash('Comments cannot be empty')
         errors =True
-    
+    print('*'*80)
+    print(request.form)
     session = {
         'name': request.form['name'],
         'dojoLocation': request.form['dojoLocation'],
