@@ -1,14 +1,29 @@
 from flask import Flask , render_template, redirect, session, request
+from mysqlconnection import connectToMySQL
 
 app=Flask(__name__)
 app.secret_key = 'This is a a secret'
+db_name = 'crfriends'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    my_sql=connectToMySQL(db_name)
+    query_result = "SELECT * from friends;"
+    return render_template('index.html', friends=query_result)
 
 
-
+@app.route('/addFriend', methods=['POST'])
+def addFriend():
+    print(request.form)
+    my_sql=connectToMySQL(db_name)
+    query="INSERT INTO friends (first_name, last_name, occupation, created_at, updated_at) VALUES (%(first_name)s,%(last_name)s,%(occupation)s,now(),now());"
+    data={
+        'first_name':request.form['firstName'],
+        'last_name':request.form['lastName'],
+        'occupation':request.form['occupation']
+    }
+    new_friend_record=mysql.query_db(query, data)
+    return redirect('/')
 
 
 
