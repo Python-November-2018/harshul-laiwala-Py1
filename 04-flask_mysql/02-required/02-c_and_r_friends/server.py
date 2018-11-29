@@ -7,15 +7,16 @@ db_name = 'crfriends'
 
 @app.route('/')
 def index():
-    my_sql=connectToMySQL(db_name)
-    query_result = "SELECT * from friends;"
+    mysql=connectToMySQL(db_name)
+    query = "SELECT * from friends;"
+    query_result = mysql.query_db(query)
     return render_template('index.html', friends=query_result)
 
 
 @app.route('/addFriend', methods=['POST'])
 def addFriend():
     print(request.form)
-    my_sql=connectToMySQL(db_name)
+    mysql=connectToMySQL(db_name)
     query="INSERT INTO friends (first_name, last_name, occupation, created_at, updated_at) VALUES (%(first_name)s,%(last_name)s,%(occupation)s,now(),now());"
     data={
         'first_name':request.form['firstName'],
